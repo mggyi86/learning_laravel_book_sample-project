@@ -11,8 +11,8 @@
     </ol>
     <h2>Widgets</h2>
     <hr>
-
-    @if($widgets->count() > 0)
+    <widget-grid></widget-grid>
+{{--    @if($widgets->count() > 0)
         <table class="table table-hover table-bordered table-striped">
             <thead>
                 <th>Id</th>
@@ -32,7 +32,7 @@
     @else
         Sorry, no Widgets
     @endif
-    {{ $widgets->links() }}
+    {{ $widgets->links() }}--}}
     <div>
         <a href="/widget/create">
             <button class="btn btn-lg btn-primary" type="button">Create New</button>

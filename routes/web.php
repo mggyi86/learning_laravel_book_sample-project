@@ -83,3 +83,6 @@ Route::post('settings', 'SettingsController@update')->name('user-update');
 
 //marketing-image
 Route::resource('marketing-image', 'MarketingImageController');
+
+//api
+Route::get('api/widget-data', 'ApiController@widgetData');
