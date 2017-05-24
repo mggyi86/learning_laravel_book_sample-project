@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\RegistrationCompleted;
 use App\Exceptions\NoActiveAccountException;
 use App\Http\AuthTraits\Social\ManagesSocialAuth;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Laravel\Socialite\Facades\Socialite;
+use App\Mail\RegistrationEmail;
+
 
 class AuthController extends RegisterController
 {
@@ -62,5 +66,15 @@ class AuthController extends RegisterController
 
         $this->incrementLoginAttempts($request);
         return $this->sendFailedLoginResponse($request);
+    }
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        event(new Registered($user = $this->create($request->all())));
+//        \Mail::to($user)->send(new RegistrationEmail($user));
+        $this->guard()->login($user);
+        event(new RegistrationCompleted($user));
+        return $this->registered($request, $user) ?: redirect($this->redirectPath());
     }
 }

@@ -11,7 +11,9 @@
     </ol>
     <h2>Marketing Images</h2>
     <hr>
-    @if($marketingImages->count() > 0)
+
+    <marketing-image-grid></marketing-image-grid>
+{{--    @if($marketingImages->count() > 0)
         <table class="table table-hover table-bordered table-striped">
             <thead>
                 <th>Id</th>
@@ -43,7 +45,7 @@
     @else
         Sorry, no Marketing Images
     @endif
-    {{ $marketingImages->links() }}
+    {{ $marketingImages->links() }}--}}
     <div>
         <a href="/marketing-image/create">
             <button type="button" class="btn btn-lg btn-primary">

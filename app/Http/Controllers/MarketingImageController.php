@@ -19,9 +19,10 @@ class MarketingImageController extends Controller
 
     public function index()
     {
-        $thumbnailPath = $this->thumbnailPath;
+/*        $thumbnailPath = $this->thumbnailPath;
         $marketingImages = MarketingImage::orderBy('image_weight', 'asc')->paginate(10);
-        return view('marketing-image.index', compact('marketingImages', 'thumbnailPath'));
+        return view('marketing-image.index', compact('marketingImages', 'thumbnailPath'));*/
+        return view('marketing-image.index');
     }
 
 
