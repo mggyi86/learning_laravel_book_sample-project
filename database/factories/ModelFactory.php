@@ -33,3 +33,12 @@ $factory->define(App\Widget::class, function($faker) {
         'user_id'   => $user_id,
     ];
 });
+
+$factory->define(App\Message::class, function($faker) {
+    $message = $faker->unique()->word . ' '.$faker->unique()->word;
+    return [
+        'message' => $message,
+        'user_id' => 21
+    ];
+});
+

@@ -15,12 +15,12 @@ class TestController extends Controller
     public function index()
     {
 //        $result = Widget::findOrFail(200);
-        throw new EmailNotProvidedException('facebook');
+//        throw new EmailNotProvidedException('facebook');
 /*        $tests = ['tes','test'];
         alert()->overlay('Listen', 'I hear beatle music!', 'success');
         session()->flash('status', 'Task was successful');
         return view('test.index',compact('tests'));*/
-
+        return view('test.index');
     }
 
     /**
