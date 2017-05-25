@@ -42,3 +42,9 @@ $factory->define(App\Message::class, function($faker) {
     ];
 });
 
+$factory->define(App\Category::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->unique()->word,
+    ];
+});
+

@@ -65,6 +65,9 @@
                             </li>
                         </ul>
                     </li>
+                    {{--@foreach($avatars as $avatar)--}}
+                        {{--<li><img class="circ" src="{{ $avatar->avatar }}"></li>--}}
+                    {{--@endforeach--}}
                     <li><img class="circ" src="{{ Gravatar::get(Auth::user()->email)  }}"></li>
                 @else
                     <li><a href="/login">Login</a></li>

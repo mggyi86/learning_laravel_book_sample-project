@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Widget;
 use App\Exceptions\EmailNotProvidedException;
+use Illuminate\Support\Facades\Auth;
+use App\SocialProvider;
 class TestController extends Controller
 {
     /**
@@ -20,7 +22,8 @@ class TestController extends Controller
         alert()->overlay('Listen', 'I hear beatle music!', 'success');
         session()->flash('status', 'Task was successful');
         return view('test.index',compact('tests'));*/
-        return view('test.index');
+        $avatars = Auth::user()->socialProviders()->get();
+        return view('test.index', compact('avatars'));
     }
 
     /**
